@@ -1,0 +1,21 @@
+{
+  "servers": {
+    "codespace-mcp": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["src/server.py", "--stdio"],
+      "description": "Python MCP Server in Codespaces"
+    },
+    "codespace-mcp-http": {
+      "type": "http",
+      "url": "http://localhost:8000/mcp",
+      "description": "HTTP MCP Server"
+    },
+    "codespace-mcp-ts": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["build/index.js"],
+      "description": "TypeScript MCP Server"
+    }
+  }
+}

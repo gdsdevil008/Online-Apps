@@ -1,0 +1,36 @@
+{
+  "name": "Devil MCP Server",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  
+  // Auto-start commands - runs EVERY time the codespace starts
+  "postStartCommand": "cd /workspaces/Online-Apps/Devil-mcpl-server && python src/server.py --stdio &",
+  
+  // This runs only once when the container is first created
+  "postCreateCommand": "pip install -r requirements.txt",
+  
+  // Forward the MCP port
+  "forwardPorts": [8000],
+  
+  // Make port public automatically
+  "portsAttributes": {
+    "8000": {
+      "label": "Devil MCP Server",
+      "onAutoForward": "notify",
+      "visibility": "public"
+    }
+  },
+  
+  // VS Code customizations
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "github.copilot",
+        "github.copilot-chat"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      }
+    }
+  }
+}
